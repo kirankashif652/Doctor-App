@@ -202,6 +202,14 @@ const connectDB = async () => {
 };
 
 // ✅ Start Server - Simple approach
+app.use(express.urlencoded({ extended:true}))
+
+app.get("/", (req,res) => {
+  res.send({activestatus:true,
+    error:false,
+  })
+})
+
 const PORT = process.env.PORT || 5000;
 
 connectDB().then(() => {
