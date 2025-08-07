@@ -5,7 +5,7 @@ function About() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black py-16 px-4">
       {/* Hero Section */}
       <div className="max-w-6xl mx-auto">
-        {/* Main Heading with Animation */}
+       
         <div className="text-center mb-16">
           <div className="relative inline-block">
             <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-2xl opacity-20 blur-2xl animate-pulse"></div>

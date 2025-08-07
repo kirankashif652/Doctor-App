@@ -15,10 +15,10 @@ function Dashboard() {
     pendingAppointments: 0
   });
   const [deleteLoading, setDeleteLoading] = useState(null);
-  const [filter, setFilter] = useState('all'); // all, today, upcoming
+  const [filter, setFilter] = useState('all'); 
   const navigate = useNavigate();
 
-  // Check for admin access + Fetch data
+  
   useEffect(() => {
     const role = localStorage.getItem("role");
 
@@ -106,7 +106,7 @@ function Dashboard() {
   // Edit appointment
   const handleEdit = (app) => {
     alert(`🔧 Edit functionality coming soon for appointment: ${app._id}`);
-    // navigate(`/edit-appointment/${app._id}`);
+   
   };
 
   // Filter appointments

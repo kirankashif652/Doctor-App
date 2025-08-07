@@ -40,7 +40,7 @@ function BookDoctor() {
         }
       );
       alert(`✅ Appointment booked successfully with Dr. ${doctorName}!`);
-      setDate(""); // Reset date after successful booking
+      setDate(""); 
     } catch (error) {
       console.error("Booking error:", error);
       alert("❌ Booking failed. Please try again.");

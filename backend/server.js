@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
-
+import userRoutes from "./routes/userRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import doctorRoutes from "./routes/doctorRoutes.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
@@ -13,23 +13,23 @@ dotenv.config();
 
 const app = express();
 
-// ✅ CORS Configuration - Simple but effective
+// ✅ CORS Configuration 
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:3000"],
+  origin: ["http://localhost:5173", "http://localhost:5174", "http://localhost:5000"],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']
 }));
 
-// ✅ Additional CORS headers (keep your original setup)
+// ✅ Additional CORS headers 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:5174");
+  res.header("Access-Control-Allow-Origin", "http://localhost:5173");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
   next();
 });
 
-// ✅ Body Parser Middleware
+// ✅ Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -45,6 +45,7 @@ app.get('/health', (req, res) => {
 
 // ✅ API Routes
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/doctors", doctorRoutes);
 app.use("/api/appointments", appointmentRoutes);
 
@@ -66,17 +67,16 @@ app.use((error, req, res, next) => {
   });
 });
 
-// ✅ Simple Database Connection with Cleanup
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ MongoDB Connected");
     
-    // 🧹 Clear existing doctors first (to remove duplicates)
+  
     await Doctor.deleteMany({});
     console.log("🧹 Cleared existing doctors");
     
-    // Add fresh doctors with more variety
+    
     const doctorsToSeed = [
       { 
         name: " Ahmed Hassan", 
@@ -191,7 +191,7 @@ const connectDB = async () => {
     await Doctor.insertMany(doctorsToSeed);
     console.log(`🌱 ${doctorsToSeed.length} doctors seeded successfully`);
     
-    // List all specializations
+
     const specializations = [...new Set(doctorsToSeed.map(doc => doc.specialization))];
     console.log(`🏥 Available specializations: ${specializations.join(', ')}`);
     

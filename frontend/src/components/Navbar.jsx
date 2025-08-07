@@ -19,20 +19,20 @@ function Navbar({ isLoggedIn, role }) {
     <nav className="bg-gradient-to-r from-gray-900 via-gray-800 to-black shadow-2xl mb-6 border-b border-gray-700">
       <div className="max-w-9xl mx-auto px-5">
         <div className="flex justify-between items-center h-20">
-          {/* Logo/Brand - More Beautiful */}
+         
           <div className="flex-shrink-0 flex items-center">
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full opacity-20 blur-lg animate-pulse"></div>
               <Link 
                 to="/" 
-                className="relative text-4xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent hover:from-blue-300 hover:via-purple-300 hover:to-pink-300 transition-all duration-500 transform hover:scale-110"
+                className="relative text-3xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent hover:from-blue-300 hover:via-purple-300 hover:to-pink-300 transition-all duration-500 transform hover:scale-110"
               >
                 💊 HealthCare
               </Link>
             </div>
           </div>
 
-          {/* Desktop Navigation - More Stylish */}
+          
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-2">
               <Link 
@@ -79,7 +79,8 @@ function Navbar({ isLoggedIn, role }) {
                 </div>
               </Link>
               
-              {/* Admin Only Links - Extra Beautiful */}
+              
+
               {role === "admin" && (
                 <>
                   <Link 
@@ -108,7 +109,7 @@ function Navbar({ isLoggedIn, role }) {
             </div>
           </div>
 
-          {/* Desktop Auth Buttons - Super Beautiful */}
+          {/* Desktop Auth Buttons */}
           <div className="hidden md:block">
             <div className="ml-4 flex items-center space-x-4">
               {isLoggedIn ? (
@@ -150,7 +151,7 @@ function Navbar({ isLoggedIn, role }) {
             </div>
           </div>
 
-          {/* Mobile menu button - Beautiful */}
+          {/* Mobile menu button  */}
           <div className="md:hidden">
             <button
               onClick={toggleMobileMenu}
@@ -167,7 +168,7 @@ function Navbar({ isLoggedIn, role }) {
           </div>
         </div>
 
-        {/* Mobile Navigation Menu - Extra Beautiful */}
+        {/* Mobile Navigation Menu  */}
         {isMobileMenuOpen && (
           <div className="md:hidden animate-in slide-in-from-top duration-300">
             <div className="px-4 pt-4 pb-6 space-y-3 bg-gradient-to-b from-gray-800/80 to-gray-900/80 backdrop-blur-xl rounded-2xl mb-4 border border-gray-700/50 shadow-2xl">
@@ -230,7 +231,7 @@ function Navbar({ isLoggedIn, role }) {
                 </>
               )}
 
-              {/* Mobile Auth Buttons - Super Beautiful */}
+              {/* Mobile Auth Buttons  */}
               <div className="pt-4 mt-4 border-t border-gray-600/50 space-y-3">
                 {isLoggedIn ? (
                   <button 

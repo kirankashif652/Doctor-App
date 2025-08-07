@@ -81,14 +81,14 @@ function Signup() {
     }
   };
 
-  // Handle password change with strength check
+  
   const handlePasswordChange = (value) => {
     setPassword(value);
     setPasswordStrength(checkPasswordStrength(value));
     if (errors.password) setErrors(prev => ({ ...prev, password: '' }));
   };
 
-  // Get password strength color and text
+ 
   const getPasswordStrengthInfo = () => {
     const strengthLevels = [
       { color: 'text-red-400', text: 'Very Weak', bgColor: 'bg-red-500' },

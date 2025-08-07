@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const doctorSchema = new mongoose.Schema({
-  // ✅ Basic Information (Keep simple for now)
+  
   name: {
     type: String,
     required: true,
@@ -14,7 +14,6 @@ const doctorSchema = new mongoose.Schema({
     trim: true
   },
 
-  // ✅ Optional fields (won't break if missing)
   email: {
     type: String,
     trim: true,
@@ -54,7 +53,7 @@ const doctorSchema = new mongoose.Schema({
   }
 
 }, {
-  timestamps: true // Adds createdAt and updatedAt
+  timestamps: true 
 });
 
 export default mongoose.model("Doctor", doctorSchema);
